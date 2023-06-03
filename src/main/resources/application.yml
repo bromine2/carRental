@@ -1,0 +1,40 @@
+server:
+  port: 7777
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/wx_shop?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8
+    username: root
+    password:
+    hikari:
+      max-lifetime: 1000000
+  thymeleaf:
+    cache: false #关闭缓存
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.shengxiao.entity
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+authority:
+  info: '[]'
+
+logging:
+  file:
+    path: log
+    name: log/my.log
+  level:
+    com:
+      javaclimb:
+        dao: debug

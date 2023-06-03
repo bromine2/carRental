@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shengx1ao.mapper.CommentInfoMapper">
+
+    <select id="findByContent" resultType="com.shengx1ao.entity.CommentInfo">
+        select a.*,b.name as userName,c.name as goodsName
+        from comment_info as a
+                 left join user_info as b on a.userId=b.id
+                 left join goods_info as c on a.goodsId=c.id
+        where 1=1
+        <if test="name!=null and name!='all' and name!=''">
+            and content like concat('%',#{name},'%')
+        </if>
+    </select>
+</mapper>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+      xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>商品评论信息</title>
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/font-awesome.css" rel="stylesheet">
+  <link href="../css/basic.css" rel="stylesheet">
+  <link href="../css/custom.css" rel="stylesheet">
+  <link href="../css/my.css" rel="stylesheet">
+  <link href="../css/element/index.css" rel="stylesheet">
+  <style>
+    [v-cloak]{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div id="wrapper" v-cloak>
+  <nav class="navbar navbar-default navbar-cls-top " style="margin-bottom: 0">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">汽车租赁后台管理系统</a>
+    </div>
+
+    <div class="header-right">
+      <a href="javascript:void(0)" class="btn btn-info" @click="logout" title="退出登录">
+        <i class="fa fa-sign-out fa-2x"></i>
+      </a>
+    </div>
+
+    <div class="header-right">
+      <a href="accountUserInfo.html" class="btn btn-info"  title="个人信息">
+        <i class="fa fa-user fa-2x"></i>
+      </a>
+    </div>
+    <div class="header-right">
+      欢迎，{{user.nickname}}
+    </div>
+  </nav>
+
+  <nav class="navbar-default navbar-side">
+    <div class="sidebar-collapse">
+      <ul class="nav" id="main-menu">
+        <li>
+          <a href="index.html"><i class="fa fa-dashboard">
+            汽车租赁系统首页
+          </i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-yelp"></i>信息展示<span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level collapse in">
+            <li><a href="userInfo.html"><i class="fa fa-table"></i>用户信息</a></li>
+            <li><a href="advertiserInfo.html"><i class="fa fa-table"></i>公告信息</a></li>
+            <li><a href="typeInfo.html"><i class="fa fa-table"></i>汽车类别</a></li>
+            <li><a href="goodsInfo.html"><i class="fa fa-table"></i>汽车信息</a></li>
+
+            <li><a  href="orderInfo.html"><i class="fa fa-table"></i>订单信息</a></li>
+            <li><a class="active-menu" href="commentInfo.html"><i class="fa fa-table"></i>评论信息</a></li>
+          </ul>
+        </li>
+        <li><a href="accountUserInfo.html"><i class="fa fa-user"></i>个人信息</a></li>
+        <li><a href="updatePassword.html"><i class="fa fa-unlock-alt"></i>修改密码</a></li>
+        <li><a href="javascript:void(0)"@click="logout"><i class="fa fa-power-off"></i>退出登录</a></li>
+
+      </ul>
+    </div>
+  </nav>
+  <div id="page-wrapper">
+    <div id="page-inner">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            评论信息
+          </div>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <input type="text" placeholder="请输入搜索内容" v-model="name" @keyup.enter="loadTable(1)">
+              <i class="glyphicon glyphicon-search"></i>
+
+              <table class="table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>评论内容</th>
+                  <th>评论时间</th>
+                  <th>所属商品</th>
+                  <th>评论用户</th>
+                  <th>操作</th>
+                </tr>
+                </thead>
+                <tbody v-for="obj in objs">
+                <tr>
+                  <td>{{obj.id}}</td>
+                  <td>{{obj.content}}</td>
+                  <td>{{obj.createtime}}</td>
+                  <td>{{obj.goodsName}}</td>
+                  <td>{{obj.userName}}</td>
+
+                </tr>
+                </tbody>
+              </table>
+              <ul class="pagination">
+                <li class="page-item" v-bind:class="{disabled:preActive}">
+                  <a class="page-link" href="javascript:void(0)" v-on:click="loadTable(pageInfo.pageNum-1)">上一页</a>
+                </li>
+
+                <li class="page-item">
+                  <a class="page-link" v-if="pageInfo.pageNum>1" href="javascript:void(0)" v-on:click="loadTable(pageInfo.pageNum-1)">{{pageInfo.pageNum-1}}</a>
+                </li>
+
+                <li class="page-item-disabled">
+                  <a class="page-link" href="javascript:void(0)">{{pageInfo.pageNum}}</a>
+                </li>
+
+                <li class="page-item">
+                  <a class="page-link" v-if="pageInfo.pageNum.hasNextPage" href="javascript:void(0)" v-on:click="loadTable(pageInfo.pageNum+1)">{{pageInfo.pageNum+1}}</a>
+                </li>
+
+                <li class="page-item" v-bind:class="{disabled:nextActive}">
+                  <a class="page-link" href="javascript:void(0)" v-on:click="loadTable(pageInfo.hasNextPage?(pageInfo.pageNum+1):pageInfo.pageNum)">下一页</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+</div>
+
+<script src="../js/jquery-1.10.2.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.metisMenu.js"></script>
+<script src="../js/custom.js"></script>
+<script src="../js/my.js"></script>
+<script src="../js/vue2.6.11/vue.min.js"></script>
+<script src="../js/vue2.6.11/axios.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script src="../js/element/index.js"></script>
+<script>
+  function msg(type,msg) {
+    Vue.prototype.$message({
+      type: type,
+      message: msg,
+      duration: 3000,
+      offset: 100,
+      center:true
+    })
+
+  }
+  new Vue({
+    el: "#wrapper",
+    data: {
+      user: {},
+      name:'',
+      objs: [],
+      pageInfo: {},
+      preActive: true,//有上一页为false，没有为true
+      nextActive: true,//有下一页为false，没有为true
+    },
+    created: function () {
+      this.user=JSON.parse(localStorage.getItem('user'));
+      this.loadTable(1);
+
+    },
+    methods: {
+      loadTable(pageNum){
+        let name=this.name===''?'all':this.name;
+        axios.get("/commentInfo/page/"+name+"?pageNum="+pageNum).then(res=>{
+          if(res.data.code==='0'){
+            this.objs=res.data.data.list;
+            this.pageInfo=res.data.data;
+            this.preActive=!(this.pageInfo.hasPreviousPage);
+            this.nextActive=!(this.pageInfo.hasNextPage);
+          } else {
+            msg('error',res.data.msg);
+          }
+        })
+      }
+    }
+  });
+</script>
+</body>
+</html>
