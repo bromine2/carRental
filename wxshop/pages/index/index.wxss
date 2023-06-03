@@ -1,0 +1,115 @@
+/**index.wxss**/  
+/* rpx在不同的手机上有不同的显示,px固定 */
+.nx_swiper swiper{
+  width: 750rpx; 
+  height: 400rpx;
+}
+
+.nx_swiper swiper image{
+  width: 750rpx;
+  height: 400rpx;
+}
+
+/* 宫格列表 */
+.nx_congar {
+  margin: 20rpx;
+}
+
+.nx_congar_title{
+  padding: 20rpx;
+  color: #666;
+  font-weight: bold;
+  font-size: 35rpx;
+  background-color: wheat;
+  border-bottom: 1px solid #eee;
+  border-radius: 10rpx 10rpx 0 0;
+}
+
+.nx_congar_list{
+  padding: 20rpx 20rpx 0 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  border-radius: 0 0 10rpx 10rpx;
+}
+
+.nx_congar_list navigator{
+  margin-bottom: 20rpx;
+  text-align: center;
+  color:#666;
+}
+
+/* 3个一行 */
+.nx_congar_item_3{
+  width: 33.33%;
+}
+
+.nx_congar_item_3 image{
+  width: 91%;
+  height: 180rpx;
+}
+
+.nx_item_name{
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  font-weight: bold;
+  font-size: 35rpx;
+}
+
+/* 行列表 */
+.nx_line {
+  margin: 20rpx;
+}
+
+.nx_line_title{
+  padding: 20rpx;
+  color: #666;
+  font-weight: bold;
+  font-size: 35rpx;
+  background-color: wheat;
+  border-bottom: 1px solid #eee;
+  border-radius: 10rpx 10rpx 0 0;
+}
+
+.nx_line_list{
+  background-color: white;
+  border-radius: 0 0 10rpx 10rpx;
+}
+
+.nx_line_list .nx_line_item{
+  width: 100%;
+  display: flex;
+  padding: 20rpx;
+  border-bottom:1px solid #eee;
+}
+
+.nx_line_left{
+  flex:2;
+  display:flex;
+  align-items:center;
+}
+
+.nx_line_mid{
+  flex:8;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color:#999;
+  padding: 0 40rpx;
+}
+
+.nx_line_right{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  color:#999;
+}
+
+.nx_line_left image{
+  width: 100%;
+  height: 100rpx;
+}
+

@@ -1,0 +1,8 @@
+<!--pages/pay/index.wxml-->
+<view class="login_title">评价</view>
+<view class="input_view">
+  <input class="input_text" value="{{content}}" type="text" placeholder="请输入评价" bindinput="onComment"/>
+</view>
+<view class="loginBtnView">
+  <button class="loginBtn" type="primary" bindtap="comment">评价</button>
+</view>

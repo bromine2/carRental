@@ -1,0 +1,42 @@
+<!--pages/cartInfo/index.wxml-->
+<!-- 购物车内容 -->
+<view class="cart_content">
+  <view class="cart_title">购物车</view>
+  <view class="cart_main">
+    <block wx:if="{{cart.length===0}}">
+      <image mode="widthFix" src="../../imgs/cartNone.gif"></image>
+    </block>
+    <block wx:else>
+      <view class="cart_item" wx:for="{{cart}}" wx:for-item="item">
+        <navigator class="cart_img_wrap" url="/pages/goodsInfo/index?id={{item.id}}">
+          <image style="height: 150rpx;" src="{{item.url}}"></image>
+        </navigator>
+        <view class="cart_info_wrap">
+          <view class="goods_name">{{item.name}}</view>
+          <view class="goods_price_wrap">
+            <view class="goods_price">${{item.price}}</view>
+            <view class="cart_num_tool">
+              <view class="num_edit" bindtap="handleItemNumEdit" data-id="{{item.id}}" data-operation="{{-1}}">-</view>
+            </view>
+            <view class="cart_num_tool">
+              <view class="goods_name">{{item.count}}天</view>
+            </view>
+            <view class="cart_num_tool">
+              <view class="num_edit" bindtap="handleItemNumEdit" data-id="{{item.id}}" data-operation="{{1}}">+</view>
+            </view>
+          </view>
+          </view>
+        </view>
+    </block>
+  </view>
+</view>
+
+<!-- 底部工具栏 -->
+<view class="footer_tool">
+  <view class="total_price_wrap">
+  合计：<text class="total_price_text">${{totalPrice}}</text>
+  <text style="margin-left:30rpx;"></text>
+  <view>共<text style="margin-left:10rpx;color: blue;margin-right:10rpx">{{totalNum}}</text>天</view>
+  </view>
+  <view class="order_pay_wrap" bindtap="handlePay">提交订单</view>
+</view>

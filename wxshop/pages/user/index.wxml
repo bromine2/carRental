@@ -1,0 +1,44 @@
+<!--pages/user/index.wxml-->
+<view class="user_info_wrap">
+  <view wx:if="{{isLogin===1}}" class="user_img_wrap">
+    <image class="user_bg" src="../../imgs/head.jpg"></image>
+    <view class="user_info">
+      <image class="user_icon" src="{{userInfo.code}}"></image>
+      <view class="user_name">{{userInfo.name}}</view>
+    </view>
+  </view>
+  <view wx:else class="user_btn">
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+  </view>
+</view>
+
+<view class="user_content">
+  <view class="user_main">
+    <view class="orders_wrap">
+      <view class="orders_title">我的订单</view>
+      <view class="orders_content">
+        <view class="navigator" bindtap="navigateToOrder" data-state="all">
+          <view class="order_name">全部订单</view>
+        </view>
+        <view class="navigator" bindtap="navigateToOrder" data-state="待付款">
+          <view class="order_name">待付款</view>
+        </view>
+        <view class="navigator" bindtap="navigateToOrder" data-state="待提车">
+          <view class="order_name">待提车</view>
+        </view>
+        <view class="navigator" bindtap="navigateToOrder" data-state="已归还">
+          <view class="order_name">已归还</view>
+        </view>
+      </view>
+    </view>
+    <view class="app_info_wrap">
+      <view class="app_info_item app_info_contact">
+        <text>联系客服</text>
+        <text>123456789</text>
+      </view>
+      <view class="app_info_item" bindtap="recharge">
+        充值(当前余额：${{price}})
+      </view>
+    </view>
+  </view>
+</view>

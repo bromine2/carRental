@@ -1,0 +1,22 @@
+/* pages/pay/index.wxss */
+.login_title{
+  font-size: 40rpx;
+  color: red;
+  text-align: center;
+  margin-top: 50rpx;
+  margin-bottom: 80rpx;
+}
+
+.input_view{
+  line-height: 44rpx;
+}
+
+.input_text{
+  margin: 50rpx;
+  text-align: center;
+  color: #cccccc;
+  font-size: 40rpx;
+  border:1rpx solid #cccccc;
+  padding: 15rpx;
+  border-radius: 20rpx;
+}

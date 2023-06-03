@@ -1,0 +1,97 @@
+/* pages/user/index.wxss */
+page{
+  background-color:#edece8;
+}
+
+.user_info_wrap{
+  height: 45vh;
+  overflow:hidden;
+  background-color: var(--themeColor);
+  position: relative;
+}
+
+.user_info_wrap .user_img_wrap{
+  position:relative;
+}
+
+.user_info_wrap .user_img_wrap .user_bg{
+  height: 50vh;
+  filter: blur(10rpx);
+}
+
+.user_info_wrap .user_img_wrap .user_info{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20%;
+  text-align: center;
+}
+
+.user_info_wrap .user_img_wrap .user_info .user_icon{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+
+.user_info_wrap .user_img_wrap .user_info .user_name{
+  color: #fff;
+  margin-top: 40%;
+}
+
+.user_info_wrap .user_btn{
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  top:40%;
+  border: 1rpx solid yellow;
+  color: orange;
+  font-size: 38rpx;
+  padding: 30rpx;
+  border-radius: 10rpx;
+}
+
+.user_content .user_main{
+  padding-bottom: 100rpx;
+  color: #666666;
+  position: absolute;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  top:450rpx;
+}
+
+.user_content .user_main .orders_wrap{
+  background-color: white;
+  margin-top: 30rpx;
+}
+
+.user_content .user_main .orders_wrap .orders_title{
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.user_content .user_main .orders_wrap .orders_content{
+  display: flex;
+}
+
+.user_content .user_main .orders_wrap .orders_content .navigator{
+  padding: 15rpx 0;
+  flex: 1;
+  text-align: center;
+}
+
+.user_content .user_main .app_info_wrap{
+  margin-top:30rpx;
+  background-color: white;
+}
+
+.user_content .user_main .app_info_wrap .app_info_item{
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.user_content .user_main .app_info_wrap .app_info_contact{
+  display: flex;
+  justify-content: space-between;
+}
+

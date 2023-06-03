@@ -1,0 +1,48 @@
+<!--pages/goodsInfo/index.wxml-->
+<view class="nx_detail">
+<!-- 轮播图开始 -->
+<view class="nx_swiper">
+    <swiper autoplay indicator-dots circular interval="2000">
+      <swiper-item wx:for="{{swiperList}}" wx:key="id">
+        <navigator>
+        <image src="{{item.imgSrc}}"></image>
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+<!-- 轮播图结束 -->
+
+<view class="nx_detail_main">
+  <view class="nx_detail_main_item">
+    <view class="nx_detail_main_item_left">名称</view>
+    <view class="nx_detail_main_item_right">{{obj.name}}</view>
+  </view>
+</view>
+<view class="nx_detail_main">
+  <view class="nx_detail_main_item">
+    <view class="nx_detail_main_item_left">描述</view>
+    <view class="nx_detail_main_item_right">{{obj.description}}</view>
+  </view>
+</view>
+<view class="nx_detail_main">
+  <view class="nx_detail_main_item">
+    <view class="nx_detail_main_item_left">价格</view>
+    <view class="nx_detail_main_item_right" style="color: red;">${{obj.price}}</view>
+  </view>
+</view>
+<view class="nx_detail_main">
+  <view class="nx_detail_main_item">
+    <view class="nx_detail_main_item_left">折扣</view>
+    <view class="nx_detail_main_item_right">{{obj.discount}}</view>
+  </view>
+</view>
+<view class="nx_detail_main">
+  <view class="nx_detail_main_item">
+    <view class="nx_detail_main_item_left">销量</view>
+    <view class="nx_detail_main_item_right">{{obj.sales}}</view>
+  </view>
+</view>
+<view class="footer_tool">
+  <view class="order_pay_wrap" bindtap="handleCartAdd">加入购物车</view>
+</view>
+</view>

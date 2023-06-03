@@ -1,0 +1,6 @@
+<!--pages/login/index.wxml-->
+<view class="login_title">点击【登录】授权登录</view>
+<view class="loginBtnView">
+  <button class="loginBtn" type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+</view>
+

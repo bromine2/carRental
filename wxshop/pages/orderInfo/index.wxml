@@ -1,0 +1,34 @@
+<!--pages/orderInfo/index.wxml-->
+<view class="nx_line">
+  <view class="nx_line_list">
+    <block wx:if="{{dataList.length===0}}">
+      <image mode="widthFix" src="../../imgs/cartNone.gif"></image>
+    </block>
+    <block wx:else>
+      <view class="nx_line_item" wx:for="{{dataList}}" wx:for-item="item">
+        <navigator style="display: flex;" url='/pages/orderDetail/index?id={{item.id}}&&state={{item.state}}'>
+          <view class="nx_line_left">
+          <image mode="scaleToFill" src="{{item.url}}"></image>
+          </view>
+          <view class="nx_line_mid">
+            <view style="color: black;padding: 15rpx 0;">订单编号：{{item.orderid}}</view>
+            <view style="color: black;padding: 15rpx 0;">租赁开始日期：{{item.createtime}}</view>
+            <view style="padding-top:20rpx;">订单状态：{{item.state}}</view>
+          </view>
+          <view class="nx_line_right">
+            <text style="color:red;">${{item.totalprice}}</text>
+            <text style="padding-top:10rpx">共{{item.count}}辆车</text>
+          </view>
+        </navigator>
+
+        <view style="text-align: right;padding: 20rpx;">
+          <text wx:if="{{item.state==='待付款'}}" style="background-color: var(--themeColor);color: white;" class="btn" bindtap="payGoods" data-id="{{item.id}}" data-state="{{'待提车'}}">付款</text>
+          <text wx:if="{{item.state==='待付款'}}" class="btn" bindtap="payGoods" data-id="{{item.id}}" data-state="{{'已取消'}}">取消</text>
+          <text wx:if="{{item.state==='已出库'}}" style="background-color: var(--themeColor);color: white;" class="btn" bindtap="payGoods" data-id="{{item.id}}" data-state="{{'使用中'}}">确认提车</text>
+          <text wx:if="{{item.state==='使用中'}}" style="background-color: var(--themeColor);color: white;" class="btn" bindtap="payGoods" data-id="{{item.id}}" data-state="{{'车辆归还中'}}">还车</text>
+        </view>
+       
+        </view>
+    </block>
+  </view>
+</view>

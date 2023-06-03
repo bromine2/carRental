@@ -1,0 +1,69 @@
+<!--index.wxml-->
+<view class="index">
+<!-- 轮播图开始 -->
+  <view class="nx_swiper">
+    <swiper autoplay indicator-dots circular interval="2000">
+      <swiper-item wx:for="{{goodsInfoCarouseList}}" wx:key="id">
+        <navigator url="/pages/goodsInfo/index?id={{item.id}}">
+        <image src="{{item.url}}"></image>
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 轮播图结束 -->
+  <!-- 推荐商品开始 -->
+  <view class="nx_congar">
+    <view class="nx_congar_title">汽车推荐列表</view>
+    <view class="nx_congar_list">
+      <navigator class="nx_congar_item_3" wx:for="{{goodsInfoRecommendList}}" wx:for-item="item" wx:key="id"
+      url="/pages/goodsInfo/index?id={{item.id}}">
+        <image mode="scaleToFill" src="{{item.url}}"></image>
+        <view class="nx_item_name">{{item.name}}</view>
+        <view style="font-size: 22rpx; margin-top:10rpx;">
+          <view style="color:red;">${{item.price}}</view>
+          <view>累计租出{{item.sales}}辆</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+    <!-- 推荐商品结束 -->
+
+  <!-- 热门商品开始 -->
+  <view class="nx_congar">
+    <view class="nx_congar_title">热门汽车列表</view>
+    <view class="nx_congar_list">
+      <navigator class="nx_congar_item_3" wx:for="{{goodsInfoHotSaleList}}" wx:for-item="item" wx:key="id"
+      url="/pages/goodsInfo/index?id={{item.id}}">
+        <image mode="scaleToFill" src="{{item.url}}"></image>
+        <view class="nx_item_name">{{item.name}}</view>
+        <view style="font-size: 22rpx; margin-top:10rpx;">
+          <view style="color:red;">${{item.price}}</view>
+          <view>累计租出{{item.sales}}辆</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+    <!-- 热门商品结束 -->
+
+      <!-- 所有商品开始 -->
+  <view class="nx_line">
+    <view class="nx_line_title">本站所有汽车列表</view>
+    <view class="nx_line_list">
+      <navigator class="nx_line_item" wx:for="{{goodsInfoAllList}}" wx:for-item="item" wx:key="id"
+      url="/pages/goodsInfo/index?id={{item.id}}">
+      <view style="flex:1">
+         <image style="height: 260rpx;" mode="scaleToFill" src="{{item.url}}"></image>
+      </view>
+      <view style="flex:1;position:relative;padding:0 30rpx;">
+        <view class="nx_item_name">{{item.name}}</view>
+        <view style="max-height: 10rpx;">描述：{{item.description}}</view>
+        <view style="position: absolute;bottom: 10rpx;">
+          <text style="color:red;">${{item.price}}</text>
+          <text style="margin-left:30rpx;">累计租出{{item.sales}}辆</text>
+        </view>
+      </view>
+      </navigator>
+    </view>
+  </view>
+    <!-- 所有商品结束 -->
+</view>

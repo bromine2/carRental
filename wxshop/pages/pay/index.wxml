@@ -1,0 +1,8 @@
+<!--pages/pay/index.wxml-->
+<view class="login_title">充值</view>
+<view class="input_view">
+  <input class="input_text" value="{{recharge}}" type="number" placeholder="请输入金额" bindinput="onPrice"/>
+</view>
+<view class="loginBtnView">
+  <button class="loginBtn" type="primary" bindtap="recharge">充值</button>
+</view>
